@@ -8,64 +8,63 @@ body {
     background-color: #2A2A2A;
 }
 
-.header {
+header {
     position: fixed;
     top: 0;
-    height: 10%;
+    height: 15%;
     width: 100%;
     background-color: #1A1A1A;
+    display: flex;
+    align-items: center;
 }
 
-.line {
-    position: absolute;
-    top: 1%;
-    bottom: 1%;
-    left: 0;
-    width: 3px;
-    height: 95%;
-    --oblique-line: -60deg;
-    border-left: 5px solid transparent;
+.title {
+    background: linear-gradient(to right, rgb(124, 30, 30) 0%, rgba(124, 30, 30, 0.6) 50%, rgb(124, 30, 30) 100%);
+    margin-left: 4%;
+    font-style: oblique;
+    user-select: none;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 85pc) {
-    .line {
-        animation-duration: 7s; /* Set the animation properties */
-        animation-direction: normal;
-        animation-iteration-count: infinite;
-        animation-name: moving-white;
-        animation-delay: 10s;
-        animation-fill-mode: forwards;
-    }
+.logo {
+    height: 80%;
+    width: 10%;
+    margin-left: 3%;
+    user-select: none;
 }
 
-@keyframes moving-white {
-    0% {
-        transform: skewX(var(--oblique-line)) translateX(-3pc);
-        background-color: transparent;
-        border-color: transparent;
-    }
-    35% {
-        background-color: white;
-        border-color: #D4D6D8;
-    }
-    50% {
-        border-color: #D4D6D8;
-    }
-    100% {
-        transform: skewX(var(--oblique-line)) translateX(90pc);
-        background-color: transparent;
-        border-color: transparent;
-    }
+.navigation {
+    background-color: rgba(100, 100, 100, 0.4);
+    position: fixed;
+    height: 7%;
+    width: 100%;
+    top: 15%;
+    text-align: center;
+    display: flex;
 }
 
-.content {
-    margin-top: 5%;
-    margin-left: 2%;
-    margin-right: 2%;
-    display: grid;
-    grid-template-columns: 75% 21%; /* Adjust the column widths as needed */
-    grid-gap: 1px; /* Add gap between columns if desired */
+.navigation a {
+    width: 20%;
+    height: 100%;
+    user-select: none;
+    color: rgba(255, 100, 10, 0.7);
+    text-decoration-style: solid;
+    font-size-adjust: inherit;
+    font-size: medium;
+    font-family: "Helvetica", sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
-.column {
+.navigation a:hover {
+    color: rgb(250, 150, 0);
+}
+
+div h3 {
+    color: blue;
 }
