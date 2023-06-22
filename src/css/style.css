@@ -11,8 +11,14 @@ html {
     --txt-regular-color: #D2D6D6;
 
     --brdr-color-content: rgb(124, 30, 30);
+    --brdr-color-sponsors: rgb(100, 100, 100);
+
+    --brdr-common-radius: 25px;
 
     --navbar-height: 60px;
+
+    --logo-width: 150px;
+    --logo-height: 80px;
 }
 
 .col-1 {width: 8.33%;}
@@ -42,6 +48,10 @@ body {
     background: var(--bg-body) no-repeat fixed;
 }
 
+/*
+Header and its content
+ */
+
 header {
     background-color: var(--bg-header);
     justify-content: start;
@@ -55,10 +65,13 @@ header * {
 }
 
 .logo {
-    width: 10%;
-    height: 80px;
+    width: var(--logo-width);
+    height: var(--logo-height);
+    resize: none;
     padding-right: 15px;
     padding-left: 30px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .title {
@@ -118,7 +131,8 @@ Class for content and generic utility
  */
 
 main {
-    margin-top: 10px;
+    margin: 10px;
+    display: flex;
 }
 
 .scroll-margin-main {
@@ -140,13 +154,55 @@ main {
 
 .content {
     border-style: solid;
-    border-radius: 2%;
+    border-radius: var(--brdr-common-radius);
     border-width: 5px;
     border-color: var(--brdr-color-content);
     padding: 2%;
     background-color: var(--bg-default-content);
+    margin: 10px;
 }
 
 article {
     position: relative;
+}
+
+.sponsors {
+    border-style: solid;
+    border-radius: var(--brdr-common-radius);
+    border-width: 5px;
+    border-color: var(--brdr-color-content);
+    display: grid;
+    position: relative;
+    padding: 2%;
+    justify-items: center;
+    margin: 10px;
+}
+
+.sponsors > div {
+    border-style: solid;
+    border-radius: var(--brdr-common-radius);
+    border-width: 5px;
+    border-color: var(--brdr-color-sponsors);
+    display: flex;
+    width: 80%;
+    padding: 2%;
+    height: max-content;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    min-width: 15%;
+}
+
+.sponsors > div > img {
+    width: 150px;
+    height: 150px;
+}
+
+.sponsors > div > img + p {
+    margin-top: 10px;
+    font-style: normal;
+    font-family: Helvetica, sans-serif;
+    font-size: medium;
+    color: var(--txt-regular-color);
 }

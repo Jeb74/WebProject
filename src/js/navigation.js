@@ -32,4 +32,3 @@ function onScrollSetNav() {
     navReference.style.position = "sticky";
     contentReference.classList.remove("scroll-margin-main")
 }
-
