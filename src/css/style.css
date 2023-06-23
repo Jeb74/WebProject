@@ -19,6 +19,9 @@ html {
 
     --logo-width: 150px;
     --logo-height: 80px;
+
+    --medieval-font: "Black Castle MF";
+    --red: #dc3545;
 }
 
 @font-face {
@@ -28,18 +31,18 @@ html {
     src: url('../fonts/BlackCastleMF.ttf');
 }
 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-1 { width: 8.33%; }
+.col-2 { width: 16.66%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33%; }
+.col-5 { width: 41.66%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.33%; }
+.col-8 { width: 66.66%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.33%; }
+.col-11 { width: 91.66%; }
+.col-12 { width: 100%; }
 
 * {
     margin: 0;
@@ -48,7 +51,7 @@ html {
 
 html, body {
     width: 100%;
-    height: 100%;
+    height: max-content;
 }
 
 body {
@@ -237,5 +240,46 @@ article {
 }
 
 .letter-resizer:hover {
-    background-color: white;
+    background-color: var(--brdr-color-sponsors);
+}
+
+footer {
+    border-top: 10px solid #2d2d2d;
+    font-family: var(--medieval-font), Helvetica, serif;
+    font-size: x-large;
+    color: #D2D6D6;
+    background: #262626;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+@media only screen and (min-width: 600px)
+{
+    footer li:first-child {
+        border-left: 2px solid var(--red);
+    }
+    
+    footer li:last-child {
+        border-right: 2px solid var(--red);
+    }
+}
+
+footer li a {
+    text-decoration: none;
+    color: var(--red);
+}
+
+footer li a:hover {
+    color: burlywood;
 }
