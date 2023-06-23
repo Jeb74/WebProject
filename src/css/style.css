@@ -44,6 +44,13 @@ html {
 .col-11 { width: 91.66%; }
 .col-12 { width: 100%; }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -52,10 +59,12 @@ html {
 html, body {
     width: 100%;
     height: max-content;
+    min-height: 50vh;
 }
 
 body {
     background: var(--bg-body) no-repeat fixed;
+    display: block;
 }
 
 /*
@@ -173,7 +182,7 @@ main {
     margin: 10px;
 }
 
-article {
+div#main-content {
     position: relative;
 }
 
@@ -262,6 +271,11 @@ footer {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    height: max-content;
+
 }
 
 footer li {
