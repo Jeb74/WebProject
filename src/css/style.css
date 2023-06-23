@@ -1,7 +1,7 @@
 html {
     --bg-header: #1A1A1A;
     --bg-body: radial-gradient(circle farthest-side at center, black 0%, #2A2A2A 100%);
-    --bg-navbar: rgb(100, 100, 100);
+    --bg-navbar: black;
     --bg-default-content: #2A2A2A;
 
 
@@ -19,6 +19,13 @@ html {
 
     --logo-width: 150px;
     --logo-height: 80px;
+}
+
+@font-face {
+    font-family: 'Black Castle MF';
+    font-weight: 600;
+    font-display: auto;
+    src: url('../fonts/BlackCastleMF.ttf');
 }
 
 .col-1 {width: 8.33%;}
@@ -78,12 +85,13 @@ header * {
     background: var(--txt-title);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: "Black Castle MF", serif;
+    font-size: xxx-large;
 }
 
 /*
 Navigation Bar
  */
-
 
 .navigation {
     background-color: var(--bg-navbar);
@@ -92,6 +100,8 @@ Navigation Bar
     margin-bottom: 10px;
     z-index: 9999;
     top: 0;
+    align-items: center;
+    overflow: hidden;
 }
 
 .navigation > ul {
@@ -100,29 +110,27 @@ Navigation Bar
     height: 100%;
 }
 
-
 .navigation > ul > li {
     width: 20%;
     text-align: center;
-    vertical-align: center;
     height: 100%;
 }
 
 .navigation > ul > li > a {
-    height: 100%;
-    width: 100%;
-}
-
-.navigation > ul > li > a > button {
+    display: block;
+    padding: 19px 14px;
     color: var(--txt-color-nb);
     height: 100%;
     width: 100%;
     background-color: var(--bg-navbar);
     border: none;
     font-size: large;
+    font-family: sans-serif;
     user-select: none;
+    text-decoration: none;
 }
-.navigation > ul > li > a > button:hover {
+
+.navigation > ul > li > a:hover {
     color: var(--txt-color-nb-hover);
 }
 
@@ -195,8 +203,8 @@ article {
 }
 
 .sponsors > div > img {
-    width: 150px;
-    height: 150px;
+    width: 50%;
+    height: 20%;
 }
 
 .sponsors > div > img + p {
@@ -205,4 +213,29 @@ article {
     font-family: Helvetica, sans-serif;
     font-size: medium;
     color: var(--txt-regular-color);
+}
+
+.letter-resizer {
+    font-style: normal;
+    font-family: Helvetica, sans-serif;
+    font-size: xx-large;
+    width: 80px;
+    height: 80px;
+    color: var(--txt-regular-color);
+    background-color: var(--bg-default-content);
+    border-style: solid;
+    border-radius: 50px;
+    border-width: 5px;
+    border-color: var(--brdr-color-sponsors);
+}
+
+.resizer-container {
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.letter-resizer:hover {
+    background-color: white;
 }
