@@ -5,7 +5,6 @@ function onLoadGetPage() {
     window.onscroll = function() {onScrollSetNav()}
     trackCurrentPage()
     const buttons = document.getElementsByClassName("letter-resizer")
-    console.log(buttons)
     for (let i = 0; i < buttons.length; i++) {
         switch (buttons[i].classList[0]) {
             case "normal": buttons[i].onclick = function() {modifyFontSize("medium")}

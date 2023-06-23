@@ -118,7 +118,7 @@ Navigation Bar
 
 .navigation > ul > li > a {
     display: block;
-    padding: 19px 14px;
+    padding: 19px 0 0;
     color: var(--txt-color-nb);
     height: 100%;
     width: 100%;
@@ -172,6 +172,16 @@ main {
 
 article {
     position: relative;
+}
+
+article > hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: red;
+    border: 0;
+    height: 1px;
+    margin-left: 10%
 }
 
 .sponsors {
