@@ -44,11 +44,6 @@ html {
 .col-11 { width: 91.66%; }
 .col-12 { width: 100%; }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 html, body {
     width: 100%;
     height: max-content;
@@ -150,9 +145,9 @@ main {
     margin-top: 70px;
 }
 
-.referenceable a{
+.referenceable a {
     color: var(--txt-color-nb);
-    text-underline-style: none;
+    text-decoration: none;
     font-style: oblique;
 }
 
@@ -274,7 +269,7 @@ footer li {
     border-radius: 5px;
 }
 
-@media only screen and (min-width: 600px)
+@media only screen and (min-width: 520px)
 {
     footer li:first-child {
         border-left: 2px solid var(--red);
@@ -292,4 +287,32 @@ footer li a {
 
 footer li a:hover {
     color: burlywood;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+} 
+
+.about img {
+    border-radius: 20%;
+    margin-right: 10px;
+    height: 200px;
+    width: 200px;
+}
+
+.about h2 {
+    margin-top: 0;
+}
+
+.about p {
+    margin-bottom: 0;
+}
+
+.sborder {
+    border: 1px solid white;
 }
