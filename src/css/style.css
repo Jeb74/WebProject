@@ -3,6 +3,8 @@ html {
     --bg-body: radial-gradient(circle farthest-side at center, black 0%, #2A2A2A 100%);
     --bg-navbar: black;
     --bg-default-content: #2A2A2A;
+    --bg-footer: #262626;
+    --bg-resizer: rgb(100, 100, 100);
 
 
     --txt-color-nb: rgba(255, 100, 10, 0.7);
@@ -12,6 +14,10 @@ html {
 
     --brdr-color-content: rgb(124, 30, 30);
     --brdr-color-sponsors: rgb(100, 100, 100);
+    --brdr-color-sponsors-container: rgb(124, 30, 30);
+    --brdr-color-resizer: rgb(100, 100, 100);
+
+    --brdr-top-color-footer: #2d2d2d;
 
     --brdr-common-radius: 25px;
 
@@ -21,7 +27,7 @@ html {
     --logo-height: 80px;
 
     --medieval-font: "Black Castle MF";
-    --red: #dc3545;
+    --txt-and-brdr-color-footer: #dc3545;
 }
 
 @font-face {
@@ -174,7 +180,7 @@ main {
 .content {
     border-style: solid;
     border-radius: var(--brdr-common-radius);
-    border-width: 5px;
+    border-width: 1px;
     border-color: var(--brdr-color-content);
     padding: 2%;
     background-color: var(--bg-default-content);
@@ -198,8 +204,8 @@ article > hr {
 .sponsors {
     border-style: solid;
     border-radius: var(--brdr-common-radius);
-    border-width: 5px;
-    border-color: var(--brdr-color-content);
+    border-width: 1px 0 1px 0;
+    border-color: var(--brdr-color-sponsors-container);
     display: grid;
     position: relative;
     padding: 2%;
@@ -210,7 +216,7 @@ article > hr {
 .sponsors > div {
     border-style: solid;
     border-radius: var(--brdr-common-radius);
-    border-width: 5px;
+    border-width: 1px 0 0 1px;
     border-color: var(--brdr-color-sponsors);
     display: flex;
     width: 80%;
@@ -226,6 +232,7 @@ article > hr {
 .sponsors > div > img {
     width: 50%;
     height: 20%;
+    border-radius: 25px;
 }
 
 .sponsors > div > img + p {
@@ -247,7 +254,8 @@ article > hr {
     border-style: solid;
     border-radius: 50px;
     border-width: 5px;
-    border-color: var(--brdr-color-sponsors);
+    border-color: var(--brdr-color-resizer);
+    user-select: none;
 }
 
 .resizer-container {
@@ -255,18 +263,19 @@ article > hr {
     margin-left: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+    user-select: none;
 }
 
 .letter-resizer:hover {
-    background-color: var(--brdr-color-sponsors);
+    background-color: var(--bg-resizer);
 }
 
 footer {
-    border-top: 10px solid #2d2d2d;
+    border-top: 10px solid var(--brdr-top-color-footer);
     font-family: var(--medieval-font), Helvetica, serif;
     font-size: x-large;
-    color: #D2D6D6;
-    background: #262626;
+    color: var(--txt-regular-color);
+    background-color: var(--bg-footer);
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -274,6 +283,7 @@ footer {
     position: relative;
     width: 100%;
     height: max-content;
+    user-select: none;
 
 }
 
@@ -290,19 +300,43 @@ footer li {
 @media only screen and (min-width: 600px)
 {
     footer li:first-child {
-        border-left: 2px solid var(--red);
+        border-left: 2px solid var(--txt-and-brdr-color-footer);
     }
     
     footer li:last-child {
-        border-right: 2px solid var(--red);
+        border-right: 2px solid var(--txt-and-brdr-color-footer);
     }
 }
 
 footer li a {
     text-decoration: none;
-    color: var(--red);
+    color: var(--txt-and-brdr-color-footer);
 }
 
 footer li a:hover {
     color: burlywood;
+}
+
+/*
+Special list style for information list
+ */
+
+ul.info-list {
+    list-style-type: none;
+}
+
+ul.info-list > li::before {
+    content: url("../imgs/info.png");
+    padding-right: 10px;
+}
+
+ul.info-list > li.optional::before {
+    content: url("../imgs/info_optional.png");
+    padding-right: 10px;
+}
+
+a.fake-link {
+    color: var(--txt-regular-color);
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
 }
