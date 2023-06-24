@@ -6,7 +6,7 @@ function onLoadGetPage() {
         onScrollSetNav()
     }
     trackCurrentPage()
-    
+
     const buttons = document.getElementsByClassName("letter-resizer")
     for (let i = 0; i < buttons.length; i++) {
         switch (buttons[i].classList[0]) {

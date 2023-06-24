@@ -168,7 +168,6 @@ main {
 
 .referenceable a {
     color: var(--txt-color-nb);
-    text-decoration: none;
     font-style: oblique;
 }
 
@@ -326,7 +325,7 @@ footer li {
     footer li:first-child {
         border-left: 2px solid var(--txt-and-brdr-color-footer);
     }
-    
+
     footer li:last-child {
         border-right: 2px solid var(--txt-and-brdr-color-footer);
     }
@@ -364,3 +363,4 @@ a.fake-link {
     font-family: Helvetica, sans-serif;
     font-style: normal;
 }
+
