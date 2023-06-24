@@ -10,7 +10,12 @@ function onLoadGetPage() {
     const buttons = document.getElementsByClassName("letter-resizer")
     for (let i = 0; i < buttons.length; i++) {
         switch (buttons[i].classList[0]) {
-            case "normal":
+            case "small":
+                buttons[i].onclick = function () {
+                    modifyFontSize("small")
+                }
+                break
+            case "medium":
                 buttons[i].onclick = function () {
                     modifyFontSize("medium")
                 }
@@ -18,11 +23,6 @@ function onLoadGetPage() {
             case "large":
                 buttons[i].onclick = function () {
                     modifyFontSize("large")
-                }
-                break
-            case "xlarge":
-                buttons[i].onclick = function () {
-                    modifyFontSize("x-large")
                 }
                 break
         }

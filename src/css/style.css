@@ -1,10 +1,12 @@
 html {
     --bg-header: #1A1A1A;
-    --bg-body: radial-gradient(circle farthest-side at center, black 0%, #2A2A2A 100%);
+    --bg-body: #2A2A2A/*radial-gradient(circle farthest-side at center, black 0%, #2A2A2A 100%)*/;
     --bg-navbar: black;
     --bg-default-content: #2A2A2A;
     --bg-footer: #262626;
     --bg-resizer: rgb(100, 100, 100);
+    --bg-single-content: #1c1c1c;
+    --bg-hr: #e1230a;
 
 
     --txt-color-nb: rgba(255, 100, 10, 0.7);
@@ -173,32 +175,43 @@ main {
 .classic-text {
     font-style: normal;
     font-family: Helvetica, sans-serif;
-    font-size: medium;
+    font-size: small;
     color: var(--txt-regular-color);
 }
 
 .content {
+    /*
     border-style: solid;
-    border-radius: var(--brdr-common-radius);
+    border-radius: 0;
     border-width: 1px;
     border-color: var(--brdr-color-content);
-    padding: 2%;
+    */
+    padding: 5px 2% 2%;
     background-color: var(--bg-default-content);
     margin: 10px;
+    transition: 0.3s;
+}
+
+.content article {
+    border-width: 1px;
+    border-color: var(--brdr-color-content);
+    border-style: solid;
+    padding: 1px 2% 2%;
+    background-color: var(--bg-single-content);
 }
 
 div#main-content {
     position: relative;
 }
 
-article > hr {
+.content > hr {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 80%;
-    background-color: red;
+    background-color: var(--bg-hr);
     border: 0;
     height: 1px;
-    margin-left: 10%
+    margin-left: 10%;
 }
 
 .sponsors {
@@ -210,7 +223,9 @@ article > hr {
     position: relative;
     padding: 2%;
     justify-items: center;
-    margin: 10px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .sponsors > div {
@@ -243,6 +258,11 @@ article > hr {
     color: var(--txt-regular-color);
 }
 
+.resizer-explainer {
+    color: var(--txt-regular-color);
+    padding-left: 40px;
+}
+
 .letter-resizer {
     font-style: normal;
     font-family: Helvetica, sans-serif;
@@ -259,11 +279,15 @@ article > hr {
 }
 
 .resizer-container {
-    padding: 10px;
+    padding: 10px 10px 10px 25px;
     margin-left: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
     user-select: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--brdr-color-resizer)
+
 }
 
 .letter-resizer:hover {

@@ -4,7 +4,4 @@ export function modifyFontSize(size) {
     element.style.fontSize = size
 }
 
-export function modifyContentForOptionalList() {
-
-}
 
