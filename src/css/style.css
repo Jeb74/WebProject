@@ -8,7 +8,6 @@ html {
     --bg-single-content: #1c1c1c;
     --bg-hr: #e1230a;
 
-
     --txt-color-nb: rgba(255, 100, 10, 0.7);
     --txt-color-nb-hover: rgb(250, 150, 0);
     --txt-title: linear-gradient(to right, rgb(124, 30, 30) 0%, rgba(124, 30, 30, 0.6) 50%, rgb(124, 30, 30) 100%);
@@ -59,10 +58,8 @@ html {
     }
 }
 
-
 html, body {
     height: max-content;
-    min-height: 50vh;
 }
 
 body {
@@ -195,8 +192,12 @@ main {
     border-width: 1px;
     border-color: var(--brdr-color-content);
     border-style: solid;
-    padding: 1px 2% 2%;
+    padding: 1px 2% 0;
     background-color: var(--bg-single-content);
+}
+
+.content article > h2 {
+    padding-left: 20px;
 }
 
 div#main-content {
@@ -259,7 +260,6 @@ div#main-content {
 
 .resizer-explainer {
     color: var(--txt-regular-color);
-    padding-left: 40px;
 }
 
 .letter-resizer {
@@ -278,15 +278,15 @@ div#main-content {
 }
 
 .resizer-container {
-    padding: 10px 10px 10px 25px;
     margin-left: 30px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
     user-select: none;
     border-width: 1px;
     border-style: solid;
-    border-color: var(--brdr-color-resizer)
-
+    border-color: var(--brdr-color-resizer);
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .letter-resizer:hover {
@@ -300,14 +300,13 @@ footer {
     color: var(--txt-regular-color);
     background-color: var(--bg-footer);
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     bottom: 0;
     position: relative;
     width: 100%;
     height: max-content;
     user-select: none;
-
 }
 
 footer li {
@@ -364,3 +363,41 @@ a.fake-link {
     font-style: normal;
 }
 
+.about {
+    display: flex;
+    border-radius:30px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--bg-single-content) 75%, var(--bg-body));
+    align-items: center;
+}
+
+.about img {
+    border-radius: 30px;
+    margin-right: 10px;
+    height: 200px;
+    width: 200px;
+    min-height: 200px;
+    min-width: 200px;
+}
+
+.about h2 {
+    margin-top: 0;
+}
+
+.about p {
+    margin-bottom: 0;
+    align-items: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: horizontal;
+    max-width: 700px;
+}
+
+.about h2, p {
+    margin: 20px;
+}
+
+.about > .separator {
+    border-left: 1px solid gray;
+    height: 180px;
+}
