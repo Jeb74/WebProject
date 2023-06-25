@@ -363,6 +363,12 @@ a.fake-link {
     font-style: normal;
 }
 
+.test {
+    background: linear-gradient(to right, black 50%, white);
+    height: 500px;
+    transition: 0.5s;
+}
+
 .about {
     display: flex;
     border-radius:30px;
