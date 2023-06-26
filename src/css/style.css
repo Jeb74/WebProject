@@ -38,6 +38,7 @@ html {
     src: url('../fonts/BlackCastleMF.ttf');
 }
 
+.col-0 { width: 4.165%; }
 .col-1 { width: 8.33%; }
 .col-2 { width: 16.66%; }
 .col-3 { width: 25%; }
@@ -215,26 +216,14 @@ div#main-content {
 }
 
 .sponsors {
-    border-style: solid;
-    border-radius: var(--brdr-common-radius);
-    border-width: 1px 0 1px 0;
-    border-color: var(--brdr-color-sponsors-container);
     display: grid;
-    position: relative;
-    padding: 2%;
     justify-items: center;
     margin-left: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .sponsors > div {
-    border-style: solid;
-    border-radius: var(--brdr-common-radius);
-    border-width: 1px 0 0 1px;
-    border-color: var(--brdr-color-sponsors);
+    border: 1px solid grey;
     display: flex;
-    width: 80%;
     padding: 2%;
     height: max-content;
     justify-content: flex-start;
@@ -242,23 +231,25 @@ div#main-content {
     flex-wrap: nowrap;
     align-items: center;
     min-width: 15%;
+    max-width: 400px;
+    background-color: var(--bg-single-content);
+}
+
+.sponsors > div:last-child {
+    border-top: none;
 }
 
 .sponsors > div > img {
-    width: 50%;
-    height: 20%;
+    width: 160px;
+    height: 160px;
     border-radius: 25px;
 }
 
-.sponsors > div > img + p {
+.sponsors > div > h1, p {
     margin-top: 10px;
     font-style: normal;
     font-family: Helvetica, sans-serif;
     font-size: medium;
-    color: var(--txt-regular-color);
-}
-
-.resizer-explainer {
     color: var(--txt-regular-color);
 }
 
@@ -287,6 +278,7 @@ div#main-content {
     border-color: var(--brdr-color-resizer);
     text-align: center;
     padding-bottom: 20px;
+    background-color: var(--bg-single-content);
 }
 
 .letter-resizer:hover {
