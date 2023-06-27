@@ -5,7 +5,6 @@ const gNavBarPos = navReference.offsetTop
 export function trackCurrentPage() {
     const cPage = window.location.href;
     let pages = document.getElementsByClassName("navigation-stage")
-    pages = ([...pages])
     
     for (var i = 0; i < pages.length; i++)
     {
