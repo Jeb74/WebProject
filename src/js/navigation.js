@@ -4,15 +4,10 @@ const gNavBarPos = navReference.offsetTop
 
 export function trackCurrentPage() {
     const cPage = window.location.href;
-    let pages = document.getElementsByClassName("navigation-stage")
+    const elements = Array.from(document.getElementsByClassName("navigation-stage"))
+    const element = elements.find(e => cPage.search(e.getAttribute("href").split(".")[0]));
     
-    for (var i = 0; i < pages.length; i++)
-    {
-        var p = pages[i];
-
-        if (cPage.search(p.getAttribute("href").split(".")[0])) 
-            p.style.backgroundColor = "#2A2A2A"
-    }
+    element.style.backgroundColor = "#2A2A2A"
 }
 
 export function onScrollSetNav() {
