@@ -205,6 +205,10 @@ div#main-content {
     position: relative;
 }
 
+div#main-content > img {
+    width: 100%;
+}
+
 .content > hr {
     margin-top: 20px;
     margin-bottom: 20px;
