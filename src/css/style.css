@@ -235,17 +235,13 @@ div#main-content {
     background-color: var(--bg-single-content);
 }
 
-.sponsors > div:last-child {
-    border-top: none;
-}
-
 .sponsors > div > img {
     width: 160px;
     height: 160px;
     border-radius: 25px;
 }
 
-.sponsors > div > h1, p {
+.sponsors > div > h1, .sponsors > div > p {
     margin-top: 10px;
     font-style: normal;
     font-family: Helvetica, sans-serif;
