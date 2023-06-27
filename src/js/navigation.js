@@ -6,7 +6,7 @@ export function trackCurrentPage() {
     const cPage = window.location.href;
     let pages = document.getElementsByClassName("navigation-stage")
     
-    pages.forEach(p => {
+    ([...pages]).forEach(p => {
         if (cPage.search(p.getAttribute("href").split(".")[0])) 
             p.style.backgroundColor = "#2A2A2A"
     })
