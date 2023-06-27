@@ -10,7 +10,7 @@ export function trackCurrentPage() {
     console.log(pages)
     for (let i = 0; i < pages.length; i++) {
         let val = pages[i].getElementsByTagName("a")[0]
-        if (cPage.search(val.split(".")[0]) !== -1) {
+        if (cPage.search(val.getAttribute("href").split(".")[0]) !== -1) {
             val.style.backgroundColor = "#2A2A2A"
             break
         }
