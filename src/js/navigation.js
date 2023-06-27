@@ -7,10 +7,13 @@ export function trackCurrentPage() {
     let pages = document.getElementsByClassName("navigation-stage")
     pages = ([...pages])
     
-    pages.forEach(p => {
+    for (var i = 0; i < pages.length; i++)
+    {
+        p = pages[i];
+
         if (cPage.search(p.getAttribute("href").split(".")[0])) 
             p.style.backgroundColor = "#2A2A2A"
-    })
+    }
 }
 
 export function onScrollSetNav() {
