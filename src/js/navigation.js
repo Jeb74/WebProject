@@ -9,7 +9,7 @@ export function trackCurrentPage() {
     
     for (var i = 0; i < pages.length; i++)
     {
-        p = pages[i];
+        var p = pages[i];
 
         if (cPage.search(p.getAttribute("href").split(".")[0])) 
             p.style.backgroundColor = "#2A2A2A"
