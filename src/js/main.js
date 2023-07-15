@@ -1,11 +1,10 @@
-import {onScrollSetNav, trackCurrentPage} from "./navigation.js";
+import {onScrollSetNav} from "./navigation.js";
 import {modifyFontSize} from "./styling_scripts.js";
 
 function onLoadGetPage() {
     window.onscroll = function () {
         onScrollSetNav()
     }
-    trackCurrentPage()
 
     const buttons = document.getElementsByClassName("letter-resizer")
     for (let i = 0; i < buttons.length; i++) {

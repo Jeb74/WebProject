@@ -151,6 +151,10 @@ Navigation Bar
     color: var(--txt-color-nb-hover);
 }
 
+.navigation > ul > li > a.current-page {
+    background-color: var(--bg-default-content);
+}
+
 /*
 Class for content and generic utility
  */
@@ -398,4 +402,29 @@ a.fake-link {
 .about > .separator {
     border-left: 1px solid gray;
     height: 180px;
+}
+
+form {
+    padding: 15px 20px 0px 0px;
+}
+
+form textarea, form input, form select {
+    display: block;
+    border: 1px solid var(--brdr-color-sponsors);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--bg-body);
+    color: var(--txt-regular-color);
+    width: 100%;
+}
+
+form textarea {
+    max-width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+.center-text {
+    text-align: center;
 }
