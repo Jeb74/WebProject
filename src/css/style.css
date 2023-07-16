@@ -6,28 +6,28 @@ html {
     --bg-footer: #262626;
     --bg-resizer: rgb(100, 100, 100);
     --bg-single-content: #1c1c1c;
-    --bg-hr: #e1230a;
+    --bg-hr: #b61f0b;
 
     --txt-color-nb: rgba(255, 100, 10, 0.7);
     --txt-color-nb-hover: rgb(250, 150, 0);
-    --txt-title: linear-gradient(to right, rgb(124, 30, 30) 0%, rgba(124, 30, 30, 0.6) 50%, rgb(124, 30, 30) 100%);
+    --txt-title: rgb(124, 30, 30);
     --txt-regular-color: #D2D6D6;
 
     --brdr-color-content: rgb(124, 30, 30);
     --brdr-color-sponsors: rgb(100, 100, 100);
-    --brdr-color-sponsors-container: rgb(124, 30, 30);
     --brdr-color-resizer: rgb(100, 100, 100);
 
-    --brdr-top-color-footer: #2d2d2d;
+    --brdr-top-color-footer: #2d2d2d; /* #2d2d2d; */
 
     --brdr-common-radius: 25px;
 
     --navbar-height: 60px;
 
-    --logo-width: 150px;
+    --logo-width: 80px;
     --logo-height: 80px;
 
     --medieval-font: "Black Castle MF";
+    --space-font: "SpaceGrotesk-Regular";
     --txt-and-brdr-color-footer: #dc3545;
 }
 
@@ -36,6 +36,13 @@ html {
     font-weight: 600;
     font-display: auto;
     src: url('../fonts/BlackCastleMF.ttf');
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-Regular';
+    font-weight: 400;
+    font-display: auto;
+    src: url('../fonts/SpaceGrotesk-Regular.ttf');
 }
 
 .col-0 { width: 4.165%; }
@@ -90,15 +97,17 @@ header * {
 .logo {
     width: var(--logo-width);
     height: var(--logo-height);
+    border: 10px double var(--txt-title);
+    border-radius: 50%;
     resize: none;
-    padding-right: 15px;
-    padding-left: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
     user-select: none;
     -webkit-user-drag: none;
 }
 
 .title {
-    background: var(--txt-title);
+    background: var(--brdr-color-content);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: "Black Castle MF", serif;
@@ -142,7 +151,7 @@ Navigation Bar
     background-color: var(--bg-navbar);
     border: none;
     font-size: large;
-    font-family: Helvetica, sans-serif;
+    font-family: var(--space-font), Helvetica, sans-serif;
     user-select: none;
     text-decoration: none;
 }
@@ -175,7 +184,7 @@ main {
 
 .classic-text {
     font-style: normal;
-    font-family: Helvetica, sans-serif;
+    font-family: var(--space-font), Helvetica, sans-serif;
     font-size: small;
     color: var(--txt-regular-color);
 }
@@ -252,14 +261,14 @@ div#main-content > img {
 .sponsors > div > h1, .sponsors > div > p {
     margin-top: 10px;
     font-style: normal;
-    font-family: Helvetica, sans-serif;
+    font-family: var(--space-font), Helvetica, sans-serif;
     font-size: medium;
     color: var(--txt-regular-color);
 }
 
 .letter-resizer {
     font-style: normal;
-    font-family: Helvetica, sans-serif;
+    font-family: var(--space-font), Helvetica, sans-serif;
     font-size: xx-large;
     width: 80px;
     height: 80px;
@@ -290,11 +299,11 @@ div#main-content > img {
 }
 
 footer {
-    border-top: 10px solid var(--brdr-top-color-footer);
-    font-family: var(--medieval-font), Helvetica, serif;
-    font-size: x-large;
+    border-top: 1px solid var(--bg-hr);
+    font-family: var(--space-font), Helvetica, serif;
+    font-size: large;
     color: var(--txt-regular-color);
-    background-color: var(--bg-footer);
+    background-color: var(--bg-single-content);
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -310,9 +319,9 @@ footer li {
     display: inline-block;
     padding-left: 20px;
     padding-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 90deg;
 }
 
 @media only screen and (min-width: 520px)
@@ -355,7 +364,7 @@ ul.info-list > li.optional::before {
 
 a.fake-link {
     color: var(--txt-regular-color);
-    font-family: Helvetica, sans-serif;
+    font-family: var(--space-font), Helvetica, sans-serif;
     font-style: normal;
 }
 
@@ -421,6 +430,7 @@ form textarea, form input, form select {
 
 form textarea {
     max-width: 100%;
+    min-width: 100%;
     min-height: 100px;
     max-height: 200px;
 }
