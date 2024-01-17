@@ -302,7 +302,7 @@ aside.right-panel > section {
 
     margin-left: 30px;
     margin-bottom: 20px;
-    padding: 6% 2%;
+    padding: 6% 4%;
     border: 1px solid grey;
 
     text-align: center;
@@ -350,12 +350,6 @@ aside.right-panel > section > img {
 
 .banner-inverted {
     background: repeating-linear-gradient(-20deg, #202020 40px, var(--bg-color-header) 90px);
-}
-
-.test {
-    background: linear-gradient(to right, black 50%, white);
-    height: 500px;
-    transition: 0.5s;
 }
 
 .about {
