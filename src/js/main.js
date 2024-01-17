@@ -6,24 +6,12 @@ function onLoadGetPage() {
         onScrollSetNav()
     }
 
-    const buttons = document.getElementsByClassName("letter-resizer")
+    const resizerSection = document.getElementById("resizer")
+    const buttons = resizerSection.querySelectorAll("button")
+
     for (let i = 0; i < buttons.length; i++) {
-        switch (buttons[i].classList[0]) {
-            case "small":
-                buttons[i].onclick = function () {
-                    modifyFontSize("small")
-                }
-                break
-            case "medium":
-                buttons[i].onclick = function () {
-                    modifyFontSize("medium")
-                }
-                break
-            case "large":
-                buttons[i].onclick = function () {
-                    modifyFontSize("large")
-                }
-                break
+        buttons[i].onclick = function() {
+            modifyFontSize(buttons[i].classList[0])
         }
     }
 }

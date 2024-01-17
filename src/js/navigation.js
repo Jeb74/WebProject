@@ -1,13 +1,16 @@
-const navReference = document.getElementsByClassName("navigation")[0]
+const navReference = document.querySelector("nav")
+const navPos = navReference.offsetTop
 const contentReference = document.getElementsByTagName("main")[0]
-const gNavBarPos = navReference.offsetTop
+
+const SCROLL_MARGIN = "scroll-margin-main"
 
 export function onScrollSetNav() {
-    if (window.scrollY >= gNavBarPos) {
+    if (window.scrollY >= navPos) {
         navReference.style.position = "fixed"
-        contentReference.classList.add("scroll-margin-main")
-        return
+        contentReference.classList.add(SCROLL_MARGIN)
     }
-    navReference.style.position = "sticky";
-    contentReference.classList.remove("scroll-margin-main")
+    else {
+        navReference.style.position = "sticky";
+        contentReference.classList.remove(SCROLL_MARGIN)
+    }
 }
