@@ -6,7 +6,7 @@ html {
     --bg-color-footer: #262626;
     --bg-color-default-content: #2A2A2A;
     --bg-color-single-content: #1c1c1c;
-    --bg-color-hr: #b61f0b;
+    --bg-color-hr: #D2D6D6;
     --bg-color-resizer: rgb(100, 100, 100);
 
     /* txt = text */
@@ -17,9 +17,8 @@ html {
     --txt-link-hover: rgb(250, 150, 0);
     --txt-border-color-footer: #dc3545;
 
-    --border-color-content: rgb(124, 30, 30);
-    --border-color-resizer: rgb(100, 100, 100);
-    --border-color-sponsors: rgb(100, 100, 100);
+    --border-color-default: rgb(100, 100, 100);
+    --border-color-default-red: rgb(124, 30, 30);
     
     --logo-width: 80px;
     --logo-height: 80px;
@@ -111,9 +110,8 @@ footer {
     height: max-content;
     width: 100%;
     
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-top: 1px solid var(--bg-color-hr);
+    padding: 15px 0px;
+    border-top: 3px solid var(--txt-title);
 
     bottom: 0;
     position: relative;
@@ -121,32 +119,25 @@ footer {
 }
 
 footer li {
-    margin-top: 5px;
-    margin-bottom: 5px;
-
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 90deg;
+    margin: 0px 15px;
+    padding: 10px;
+    border: 2px dashed var(--border-color-default-red);
     
     list-style-type: none; /* unused? */
     display: inline-block;
 }
 
-/* Simple and good looking content limiters without using ASCII characters. */
-@media only screen and (min-width: 520px)
-{
-    footer li:first-child {
-        border-left: 2px solid var(--txt-border-color-footer);
-    }
-
-    footer li:last-child {
-        border-right: 2px solid var(--txt-border-color-footer);
-    }
-}
-
 footer li a {
     color: var(--txt-border-color-footer);
     text-decoration: none;
+}
+
+/* Let's avoid items stacking directly on top of each other. */
+@media only screen and (max-width: 912px) /* magic number of pixels found using browser console. */
+{
+    footer li {
+        margin: 15px;
+    }
 }
 
 .logo {
@@ -155,7 +146,7 @@ footer li a {
     
     margin-right: 30px;
     margin-left: 30px;
-    border: 5px dashed var(--txt-title);
+    border: 5px outset var(--txt-title);
     border-radius: 50%;
     
     resize: none; /* unused? */
@@ -165,7 +156,7 @@ footer li a {
     font-size: xxx-large;
     font-family: var(--font-medieval), serif;
     
-    color: var(--border-color-content);
+    color: var(--txt-title);
 }
 
 a {
@@ -269,28 +260,32 @@ main {
 .content article {
     background-color: var(--bg-color-single-content);
 
-    border: 1px solid var(--border-color-content);
+    border: 1px solid var(--border-color-default);
     
     padding: 1% 3%;
 }
 
-.content > hr {
-    background-color: var(--bg-color-hr);
+.content > article > h2::after, .about-entry > h2::after {
+    background-color: var(--border-color-default);
     
     height: 1px;
-    width: 80%;
-    
-    border: 0;
 
-    margin: 20px 10% 20px;
+    margin: 10px 0px;
+    
+    display: block;
+    content: "";
 }
 
-div#main-content {
+.content {
     position: relative;
 }
 
-div#main-content > img {
+.content#main-content > img {
     width: 100%;
+}
+
+.content > article {
+    margin-bottom: 30px;
 }
 
 /*
@@ -327,7 +322,7 @@ aside.right-panel > section#resizer > button {
     width: 80px;
     height: 80px;
     
-    border: 5px solid var(--border-color-resizer);
+    border: 5px solid var(--border-color-default);
     border-radius: 50px;
     
     user-select: none;
@@ -353,32 +348,32 @@ aside.right-panel > section > img {
 }
 
 .about {
-    background: linear-gradient(to right, var(--bg-color-single-content) 60%, var(--bg-color-body));
-    
-    margin-bottom: 10px;
-    border-radius:30px;
+    margin: 0px 10%;
 
-    align-items: center;
+    justify-content: space-between;
     display: flex;
-    /* border: 1px solid var(--border-color-sponsors); */
 }
 
-.about img {
-    height: 200px;
-    min-height: 200px;
-    width: 200px;
-    min-width: 200px;
+.about-entry {
+    background-color: var(--bg-color-single-content);
 
-    border-radius: 30px;
-    margin-right: 10px;
+    width: 45%; /* Adjust as needed */
+
+    padding: 4%;
+    border: 1px solid var(--border-color-default);
+
+    text-align: center;
+    box-sizing: border-box;
 }
-/*
-.about .about-title, p {
-    margin-left: 20px;
-} */
 
-.about-title {
-    font-style: italic;
+.about-entry img {
+    min-height: 180px;
+    max-height: 180px;
+    min-width: 180px;
+    max-width: 180px;
+
+    border: 10px inset var(--border-color-default);
+    border-radius: 50%;
 }
 
 .about-role {
@@ -391,14 +386,6 @@ aside.right-panel > section > img {
 
     margin-bottom: 0;
     align-items: center;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: horizontal;
-}
-
-.about > .vertical-separator {
-    border-left: 1px solid gray;
-    height: 180px;
 }
 
 form {
@@ -414,7 +401,7 @@ form textarea, form input, form select {
     margin-top: 5px;
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid var(--border-color-sponsors);
+    border: 1px solid var(--border-color-default);
     
     display: block;
 }
@@ -424,8 +411,4 @@ form textarea {
     min-height: 100px;
     max-width: 100%;
     min-width: 100%;
-}
-
-.center-text {
-    text-align: center;
 }
