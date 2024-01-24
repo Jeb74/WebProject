@@ -129,6 +129,7 @@ header h1 {
 body {
     background: var(--bg-color-body);
     margin: 0;
+    display: inline-block;
 }
 
 footer {
@@ -168,7 +169,7 @@ footer li a {
  * Navigation Bar
  */
 
- nav {
+nav {
     position: sticky;
     top: 0px;
 }
@@ -204,9 +205,8 @@ nav > ul > li > a.current-page {
  * Actual content.
  */
 
-main {
-    padding: 10px;
-    display: flex;
+main, aside {
+    padding: 20px;
 }
 
 .classic-text {
@@ -224,7 +224,6 @@ main {
 }
 
 .content {
-    margin: 10px 2%;
     transition: 0.3s;
 }
 
@@ -262,7 +261,6 @@ main {
 aside.right-panel > section {
     background-color: var(--bg-color-single-content);
 
-    margin-left: 30px;
     margin-bottom: 20px;
     padding: 6% 4%;
     border: 1px solid grey;
@@ -272,10 +270,6 @@ aside.right-panel > section {
 
 aside.right-panel > section > h2 {
     margin-top: 0px;
-}
-
-aside.right-panel > section#resizer {
-    margin-top: 10px;
 }
 
 aside.right-panel > section#resizer > button {
