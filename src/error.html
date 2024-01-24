@@ -1,0 +1,120 @@
+<!--
+<%@page import="java.util.ArrayList"%>
+<%@page import="it.css.blackmarket.utils.LinkData"%>
+<%@taglib prefix="std" uri="http://java.sun.com/scriptsp/scriptstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
+<%
+    ArrayList<LinkData> links = (ArrayList<LinkData>) request.getAttribute("links");
+%>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Albion - Black Market: Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Antonio Masala & Marco La Civita">
+    <meta name="description" content="Albion Online unofficial marketplace for selling and buying ingame content.">
+    <meta name="keywords" content="ALBION, ALBION ONLINE, BLACK MARKET, MARKET, TRADING">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="./assets/skull-bottle.png" rel="icon">
+
+    <script type="module" src="./scripts/main.js"></script>
+</head>
+<body>
+<header class="col-12">
+    <img class="logo" alt="Albion Black Market Logo" src="./assets/skull-bottle.png">
+    <h1>Albion Black Market</h1>
+</header>
+<nav class="col-12">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="selling.html">Selling Space</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="personal_area.html">${sessionScope.username}</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="content classic-text col-8" id="main-content">
+        <article>
+            <h2>An error has occurred</h2>
+            <p>${message}</p>
+            <p>
+                <!--
+                <std:forEach items="${links}" var="link">
+                    <a href="${link.getReference()}">${link.getIdentifier()}</a><br>
+                </std:forEach>
+                -->
+            </p>
+        </article>
+        <img src="./assets/black-market-banner.jpg" alt="Black Market banner">
+    </div>
+    <aside class="right-panel col-3 classic-text-bigger">
+        <section class="banner-inverted" id="resizer">
+            <h2>CHANGE TEXT ZOOM LEVEL</h2>
+            <button type="button" class="small">A-</button>
+            <button type="button" class="medium">A</button>
+            <button type="button" class="large">A+</button>
+        </section>
+        <section class="banner">
+            <h2>🌊 SPONSOR 🌊</h2>
+            <img src="./assets/kokosmilch.png" alt="Kokosmilch">
+            <p>
+                With simple and healthy ingredients, Kokosmilch is the best drink to have in this hot summer!
+            </p>
+            <p>
+              <b><a href="https://www.kaufland.de/product/386975157/?search_value=kokosmilch">TRY KOKOSMILCH NOW!</a></b>
+            </p>
+        </section>
+        <section class="banner-inverted">
+            <h2>🐘 MAMMYS 🐘</h2>
+            <img src="./assets/mammouth-calf.gif" alt="Mammouth Calf trading">
+            <p>
+                Looking for a Mammouth Calf at an affordable price?
+            </p>
+            <p>
+                Check out the <a href="./products.html">Products</a> section!
+            </p>
+        </section>
+        <section class="banner">
+            <h2>⚔️ WEAPONS 🗡️</h2>
+            <img src="./assets/weapons.gif" alt="Weapons trading">
+            <p>
+                Tired of not finding you favourite weapons at the standard market?
+            </p>
+            <p>
+                We refill our stocks of weapons daily!
+            </p>
+        </section>
+        <section class="banner-inverted">
+            <h2>🌟 CHARITY 🌟</h2>
+            <img src="./assets/fakturka-donate.png" alt="Donate to fakturka">
+            <p>
+                Fakturka (known as Matvey) is a boy from Russia 🇷🇺 who likes <strong>alot</strong> playing Albion Online,
+                unfortunately, he has a <b>potato PC</b> and he cannot win in the <i>Corrupted Dungeons</i> as he should.
+            </p>
+            <p>
+                But <b>YOU</b> can make a <b>difference</b>, <b>YOU</b> can donate to Fakturka to fund his new PC.
+            </p>
+            <p>
+              <b>
+                <a href="http://www.donationalerts.ru/r/fakturka">CONTRIBUTE NOW!</a>
+              </b>
+            </p>
+        </section>
+      </aside>
+    </main>
+    <footer>
+      <ul>
+        <li>Antonio Masala</li>
+        <li>Marco La Civita</li>
+        <li>Computer Science Society</li>
+        <li><a href="mailto:contact@sorridi.xyz">contact@sorridi.xyz</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,11 +1,6 @@
-import {onScrollSetNav} from "./navigation.js";
 import {modifyFontSize} from "./styling_scripts.js";
 
 function onLoadGetPage() {
-    window.onscroll = function () {
-        onScrollSetNav()
-    }
-
     const resizerSection = document.getElementById("resizer")
     const buttons = resizerSection.querySelectorAll("button")
 
