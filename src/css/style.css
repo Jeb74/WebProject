@@ -63,11 +63,24 @@ html {
         width: 100%;
         padding: 15px;
     }
+
+    nav > ul {
+        display: block;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     [class *="col-"] {
         float: left;
+    }
+
+    nav {
+        position: sticky;
+        top: 0px;
+    }
+
+    nav > ul {
+        display: flex; /* Make the elements stand orizontally one next to the other. */
     }
 }
 
@@ -144,6 +157,10 @@ footer {
     border-top: 3px solid var(--txt-title);
 }
 
+footer ul {
+    padding: 0;
+}
+
 footer li {
     margin: 0px 15px;
     padding: 10px;
@@ -155,6 +172,12 @@ footer li {
 footer li a {
     color: var(--txt-border-color-footer);
     text-decoration: none;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 /* Let's avoid items stacking directly on top of each other. */
@@ -169,17 +192,11 @@ footer li a {
  * Navigation Bar
  */
 
-nav {
-    position: sticky;
-    top: 0px;
-}
-
 nav > ul {
     margin: 0;
     padding: 0;
     
     list-style: none;
-    display: flex; /* Make the elements stand orizontally one next to the other. */
 }
 
 nav > ul > li {
