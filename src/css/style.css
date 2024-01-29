@@ -56,8 +56,8 @@ html {
 .col-11 { width: 91.66%; }
 .col-12 { width: 100%; }
 
+/* For mobile phones: */
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
     [class*="col-"] {
         float: none;
         width: 100%;
@@ -65,23 +65,81 @@ html {
     }
 
     nav > ul {
-        display: block;
+        display: block; /* Make the nav-bar stay on top of the page. */
+    }
+
+    .content > article, .content > section {
+        padding: 3% 6%;
+    }
+
+    .about {
+        display: initial; /* Avoid empty ruleset. */
+    }
+
+    header {
+        text-align: center;
+    }
+
+    header > img {
+        margin-bottom: 10px;
     }
 }
 
+.about li:last-child {
+    margin-bottom: 0px;
+}
+
+/* For desktop: */
 @media only screen and (min-width: 768px) {
     [class *="col-"] {
         float: left;
     }
 
     nav {
-        position: sticky;
+        position: sticky; /* Make the nav-bar stick to the top even when scrolling. */
         top: 0px;
     }
 
     nav > ul {
         display: flex; /* Make the elements stand orizontally one next to the other. */
     }
+
+    .content > article, .content > section {
+        padding: 1% 3%;
+    }
+
+    .about {
+        width: 70%;
+        margin: 0px auto;
+    }
+
+    .about > ul > li {
+        display: flex;
+        align-items: center;
+    }
+
+    .about > ul > li > img {
+        float: left; 
+        margin-right: 20px;
+    }
+
+    .about > ul > li > section {
+        overflow: hidden;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+    }
+    
+    header > img {
+        margin-right: 20px;
+    }
+}
+
+.about ul {
+    padding: 0;
+    list-style: none;
 }
 
 /*
@@ -115,27 +173,27 @@ a:hover {
 header {
     background-color: var(--bg-color-header);
 
-    align-items: center;
-
-    height: 120px;
-    
-    display: flex;    
-    justify-content: start;
+    padding: 15px;
 }
 
-header img {
+header > img {
     width: 100px;
     height: 100px;
     
-    margin: 0px 30px;
-    border: 5px outset var(--txt-title);
+    border: 4px solid black;
     border-radius: 50%;
+
+    align-items: center;
+    vertical-align: middle;
 }
 
-header h1 {
+header > h1 {
     font-size: xxx-large;
+    font-variant: small-caps;
     font-family: var(--font-medieval), Helvetica, sans-serif;
     
+    margin: 0px;
+
     color: var(--txt-title);
 }
 
@@ -157,11 +215,11 @@ footer {
     border-top: 3px solid var(--txt-title);
 }
 
-footer ul {
+footer > ul {
     padding: 0;
 }
 
-footer li {
+footer > ul > li {
     margin: 0px 15px;
     padding: 10px;
     border: 2px dashed var(--border-color-default-red);
@@ -169,23 +227,23 @@ footer li {
     display: inline-block;
 }
 
-footer li a {
+footer > ul > li > a {
     color: var(--txt-border-color-footer);
     text-decoration: none;
+}
+
+/* Let's avoid items stacking directly on top of each other. */
+@media only screen and (max-width: 912px) /* magic number of pixels found using browser console. */
+{
+    footer > ul > li {
+        margin: 15px;
+    }
 }
 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
-}
-
-/* Let's avoid items stacking directly on top of each other. */
-@media only screen and (max-width: 912px) /* magic number of pixels found using browser console. */
-{
-    footer li {
-        margin: 15px;
-    }
 }
 
 /*
@@ -213,7 +271,7 @@ nav > ul > li > a {
     display: block; /* Extend the nav element's boxes. */
 }
 
-nav > ul > li > a.current-page {
+nav > ul > li > a#current-page {
     font-weight: bold;
     background-color: var(--bg-color-default-content);
 }
@@ -228,14 +286,7 @@ main, aside {
 
 .classic-text {
     font-style: normal;
-    font-size: small;
-
-    color: var(--txt-default-white);
-}
-
-.classic-text-bigger {
-    font-style: normal;
-    font-size: 15px;
+    font-size: medium;
 
     color: var(--txt-default-white);
 }
@@ -244,15 +295,7 @@ main, aside {
     transition: 0.3s;
 }
 
-.content article {
-    background-color: var(--bg-color-single-content);
-
-    border: 1px solid var(--border-color-default);
-    
-    padding: 1% 3%;
-}
-
-.content > article > h2::after, .about-entry > h2::after, .sell-items > h2::after {
+.content h2::after {
     background-color: var(--border-color-default);
     
     height: 1px;
@@ -263,12 +306,19 @@ main, aside {
     content: "";
 }
 
-.content#main-content > img {
-    width: 100%;
+.content > article, .content > section {
+    background-color: var(--bg-color-single-content);
+
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color-default);
 }
 
-.content > article {
-    margin-bottom: 30px;
+.content > article:last-child, .content > section:last-child {
+    margin-bottom: 0px;
+}
+
+.content > img {
+    width: 100%;
 }
 
 /*
@@ -283,6 +333,13 @@ aside.right-panel > section {
     border: 1px solid grey;
 
     text-align: center;
+}
+
+aside.right-panel > section > img {
+    max-width: 45%;
+    max-height: 45%;
+
+    border-radius: 25%;
 }
 
 aside.right-panel > section > h2 {
@@ -304,13 +361,7 @@ aside.right-panel > section#resizer > button {
 
 aside.right-panel > section#resizer > button:hover {
     background-color: var(--bg-color-resizer);
-}
-
-aside.right-panel > section > img {
-    width: 160px;
-    height: 160px;
-
-    border-radius: 25px;
+    box-shadow: 0px 0px 25px var(--border-color-default);
 }
 
 .banner {
@@ -321,31 +372,21 @@ aside.right-panel > section > img {
     background: repeating-linear-gradient(-20deg, #202020 40px, var(--bg-color-header) 90px);
 }
 
-.about {
-    margin: 0px 10%;
-
-    justify-content: space-between;
-    display: flex;
-}
-
-.about-entry {
+.about > ul > li {
     background-color: var(--bg-color-single-content);
 
-    width: 45%;
-
-    padding: 4%;
+    padding: 6% 4%;
+    margin: 0px auto 20px;
     border: 1px solid var(--border-color-default);
 
     text-align: center;
 }
 
-.about-entry img {
-    min-height: 180px;
+.about > ul > li > img {
     max-height: 180px;
-    min-width: 180px;
     max-width: 180px;
 
-    border: 10px inset var(--border-color-default);
+    border: 2px solid var(--border-color-default);
     border-radius: 50%;
 }
 
@@ -370,10 +411,37 @@ form textarea {
     min-width: 100%;
 }
 
-form > input#item_submit {
+form > input#submit {
+    background-color: var(--border-color-default-red);
+
+    font-size: large;
+    font-weight: bold;
+
     margin-top: 40px;
 }
 
-form > input#item_submit:hover {
-    background-color: var(--border-color-default-red);
+form > input#submit:hover {
+    box-shadow: 0px 0px 30px var(--border-color-default-red);
+}
+
+table {
+    width: 100%;
+
+    margin-bottom: 1em; /* So it will be equal to the margin on a regular html paragraph */
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--bg-color-body);
+}
+
+th, td {
+    text-align: left;
+
+    padding: 1%;
+    border: 1px solid var(--border-color-default);
+}
+
+.smoke-border {
+    box-shadow: 0px 0px 50px var(--border-color-default);
 }
