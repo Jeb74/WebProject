@@ -38,27 +38,29 @@
         </nav>
         <div class="clearfix">
             <main class="col-9">
-                <div class="content classic-text" id="main-content">
+                <div class="content common-text common-theme" id="main-content">
                     <section>
                         <h2>Sell your items:</h2>
                         <form action="new-product" method="post">
                             <!-- enctype="multipart/form-data" -->
-                            <label for="item_name">Item name:</label>
+                            <label for="item_name">Item name</label>
                             <input type="text" name="item_name" id="item_name" required>
-                            <label for="item_desc">Description:</label>
+                            <label for="item_desc">Description</label>
                             <textarea name="item_desc" id="item_desc" required></textarea>
-                            <label for="item_qty">Quantity:</label>
+                            <label for="item_qty">Quantity</label>
                             <input type="number" name="item_qty" id="item_qty" min="1" max="999" value="1" required>
-                            <label for="item_price">Price per item:</label>
+                            <label for="item_price">Price (EUR) per item</label>
                             <input type="number" name="item_price" id="item_price" min="0.1" step="0.1" required>
-                            <label for="item_img">Item image:</label>
+                            <label for="item_img">Item image</label>
                             <input type="file" name="item_img" id="item_img">
+                            <label for="item_city">Where is the item? (Royal City or Map)</label>
+                            <input type="text" name="item_city" id="item_city">
                             <input type="submit" name="item_submit" id="submit" value="ADD ITEM">
                         </form>
                     </section>
                 </div>
             </main>
-            <aside class="col-3 right-panel classic-text">
+            <aside class="col-3 right-panel common-text common-theme">
                 <section class="banner-inverted" id="resizer">
                     <h2>CHANGE TEXT ZOOM LEVEL</h2>
                     <button type="button" class="small">A-</button>
