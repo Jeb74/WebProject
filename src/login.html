@@ -42,11 +42,18 @@
                 <div class="content common-text common-theme" id="main-content">
                     <section>
                         <h2>Sign in</h2>
-                        <form action="DA CAMBIARE" method="post">
-                            <label for="username">E-Mail:</label>
-                            <input type="text" name="username" required>
+                        <form action="login" method="post">
+                            
+                            <label for="email">E-Mail:</label>
+                            <span id="wordcount_email"></span>
+                            <span id="error_email"></span>
+                            <input type="text" name="email" id="email" required>
+                            
                             <label for="password">Password:</label>
-                            <input type="password" name="password" required>
+                            <span id="wordcount_password"></span>
+                            <span id="error_password"></span>
+                            <input type="password" name="password" id="password" required>
+                            
                             <input type="submit" id="submit" value="SIGN IN">
                         </form>
                     </section>

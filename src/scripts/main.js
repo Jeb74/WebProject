@@ -1,10 +1,24 @@
-import { setupZoomButtons } from "./styling_scripts.js";
-import { setupSwitchButton } from "./item_viewer.js";
+import * as styling from "./styling.js";
+import * as viewer from "./item_viewer.js";
+import * as sanity from "./sanity.js";
 
-$(document).ready(function() {
-    setupZoomButtons()
+$(document).ready(function() 
+{
     setupLogoutButton()
-    setupSwitchButton()
+
+    styling.setupZoomButtons()
+
+    viewer.setupSwitchButton()
+
+    sanity.checkItemName()
+    sanity.checkItemDescription()
+    sanity.checkQuantity()
+    sanity.checkPrice()
+    sanity.checkItemCity()
+
+    sanity.checkEmail()
+    sanity.checkUsername()
+    sanity.checkPassword()
 })
 
 function setupLogoutButton() 
