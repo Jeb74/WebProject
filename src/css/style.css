@@ -369,7 +369,7 @@ form textarea {
     min-height: 100px;
 }
 
-form > input#submit, button#logout, .product-list button {
+form > input#submit, button#logout, .switch-buttons-list button {
     color: var(--txt-default-white);
     background-color: var(--border-color-default-red);
 
@@ -384,21 +384,39 @@ form > input#submit, button#logout, .product-list button {
     border: 1px solid var(--border-color-default);
 }
 
-form > input#submit:hover, button#logout:hover, .product-list button:hover {
+form > input#submit:hover, button#logout:hover, .switch-buttons-list button:hover {
     box-shadow: 0px 0px 30px var(--border-color-default-red);
 }
 
-.product-list .buttons {
+.switch-buttons-list {
+    display: grid;
+    width: 70%;
+    margin: 0px auto 20px;
+    padding: 0px;
+}
+
+.switch-buttons-list .switch-buttons {
     text-align: center;
     display: flex;
 }
 
-.product-list button {
+.switch-buttons-list button {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.product-list button.product-end {
+.switch-buttons-list button#switch-left {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.switch-buttons-list button#switch-right {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.switch-buttons-list > section {
+    margin-bottom: 0px;
 }
 
 table {
@@ -460,4 +478,9 @@ th, td {
 .common-theme > article, .common-theme > section, .common-theme-single {
     background-color: var(--bg-color-single-content);
     border: 1px solid var(--border-color-default);
+}
+
+.product-list {
+    margin-bottom: 0px;
+    padding: 0px;
 }

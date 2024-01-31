@@ -1,44 +1,24 @@
-import {modifyFontSize} from "./styling_scripts.js";
+import { setupZoomButtons } from "./styling_scripts.js";
+import { setupSwitchButton } from "./item_viewer.js";
 
-function setupZoomButtons() 
-{
-    const resizerSection = document.getElementById("resizer")
-    const buttons = resizerSection.querySelectorAll("button")
-
-    buttons.forEach(function(button)
-    {
-        button.onclick = function() 
-        {
-            modifyFontSize(button.classList[0])
-        }
-    })
-}
+$(document).ready(function() {
+    setupZoomButtons()
+    setupLogoutButton()
+    setupSwitchButton()
+})
 
 function setupLogoutButton() 
 {
-    const logoutButton = document.getElementById("logout")
-
-    if (logoutButton == null)
-        return;
-
-    logoutButton.onclick = function()
-    {
-        fetch("./logout", {
-            method: "POST",
-            credentials: "same-origin"
+    $("#logout").click(function() {
+        $.ajax({
+            url: "./logout",
+            type: "POST",
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function() {
+                window.location.href = "./index.html"
+            }
         })
-        .then(result => {
-                if (result.ok) 
-                {
-                    console.log("logged out!")
-                    window.location.href = "./index.html";
-                }
-        })
-    }
-}
-
-window.onload = function() 
-{ 
-    setupZoomButtons()
-    setupLogoutButton()
+    })
 }
