@@ -19,6 +19,8 @@ $(document).ready(function()
     sanity.checkEmail()
     sanity.checkUsername()
     sanity.checkPassword()
+
+    sanity.submit()
 })
 
 function setupLogoutButton() 

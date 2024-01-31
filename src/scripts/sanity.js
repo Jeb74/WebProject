@@ -10,9 +10,10 @@ const USERNAME_MIN = 1
 const USERNAME_MAX = 30
 const USERNAME_PATTERN = new RegExp("^[a-zA-Z0-9_]{1," + USERNAME_MAX + "}$")
 
-const PASSWORD_MIN = 6
+const PASSWORD_MIN = 5
 const PASSWORD_MAX = 30
-const PASSWORD_EASY_PATTERN = new RegExp("[0-9]{5}")
+// "[0-9]{5}" so we can allow the default users to login using their matricola.
+const PASSWORD_PATTERN = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{5,30}|[0-9]{5}$")
 
 const EMAIL_MIN = 3
 const EMAIL_MAX = 320
@@ -28,8 +29,6 @@ const ITEM_QUANTITY_MAX = 999
 const PRICE_MIN = 1
 const PRICE_MAX = Number.MAX_SAFE_INTEGER
 
-const ALL_PATTERN = /.*/
-
 /**
  * Error messages.
  */
@@ -37,7 +36,7 @@ const OUTCOME = {
     RANGE_ZERO: 'The current value must not be zero!',
     RANGE_OVER: 'The current value exceeds the maximum value allowed!',
     RANGE_UNDER: 'The current value is below the minimum allowed!',
-    CHARS_ZERO: 'The text must not be null!',
+    CHARS_ZERO: 'The text must not be empty!',
     CHARS_OVER: 'The text length exceeds the maximum value allowed!',
     CHARS_UNDER: 'The text length is below the minimum allowed!',
     INVALID_STRING: 'The text is not valid!',
@@ -54,7 +53,10 @@ const COLOR = {
 }
 
 // Global variable to know if all the available inputs are OK.
-var inputIsSane
+const validators = 
+[
+
+]
 
 /**
  * Checks if the target length (or value) is less than the min.
@@ -206,6 +208,8 @@ class StringValidator
         this.min_len = min_len
         this.max_len = max_len
         this.regex = regex
+
+        validators.push(this)
     }
   
     validate() 
@@ -239,6 +243,8 @@ class NumberValidator
         this.errorLabel = $(errorLabel)
         this.min = min
         this.max = max
+
+        validators.push(this)
     }
 
     validate()
@@ -250,6 +256,8 @@ class NumberValidator
         var success = outcome === OUTCOME.VALID
     
         displayMessage(this.errorLabel, outcome, !success)
+
+        return outcome
     }
 
     debug()
@@ -274,7 +282,7 @@ function bindStringValidator(target, wordCountLabel, errorLabel, min_len, max_le
 {
     const validator = new StringValidator(target, wordCountLabel, errorLabel, min_len, max_len, regex)
 
-    if (validator.target.val() === undefined)
+    if (!validatorExists(validator))
     {
         return
     }
@@ -305,7 +313,7 @@ function bindNumberValidator(target, wordCountLabel, errorLabel, min, max)
 {
     const validator = new NumberValidator(target, wordCountLabel, errorLabel, min, max)
 
-    if (validator.target.val() === undefined)
+    if (!validatorExists(validator))
     {
         return
     }
@@ -354,6 +362,9 @@ export function checkItemDescription()
     )
 }
 
+/**
+ * Validation of item city of form in selling.html.
+ */
 export function checkItemCity()
 {
     bindStringValidator(
@@ -433,6 +444,33 @@ export function checkPassword()
         "#error_password",
         PASSWORD_MIN,
         PASSWORD_MAX,
-        ALL_PATTERN
+        PASSWORD_PATTERN
     )
+}
+
+/**
+ * Final validation before submitting.
+ */
+export function submit()
+{
+    $("#submit").click(function(event) 
+    {
+        validators.forEach(validator => 
+        {
+            if (validatorExists(validator) && validator.validate() !== OUTCOME.VALID)
+            {
+                event.preventDefault()
+            }
+        });
+    })
+}
+
+/**
+ * Checks for the existance of the input to validate.
+ * @param {*} validator The validator.
+ * @returns 
+ */
+function validatorExists(validator)
+{
+    return validator.target.val() !== undefined
 }

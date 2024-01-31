@@ -24,6 +24,7 @@ html {
     --font-grotesk: "SpaceGrotesk-Regular";
 }
 
+/* Really nice font for the header title but gives warnings and errors that I cannot find a solution to. :( */
 @font-face {
     font-family: 'Black Castle MF';
     font-weight: 600;
@@ -118,7 +119,7 @@ html {
     }
     
     header > img {
-        margin-right: 20px;
+        margin-right: 30px;
     }
 
     .about {
@@ -133,7 +134,7 @@ html {
  * General
  */
 
-body, footer {
+header, body, footer {
     font-family: var(--font-grotesk), Helvetica, sans-serif;
 }
  
@@ -174,7 +175,6 @@ header > img {
 header > h1 {
     font-size: xxx-large;
     font-variant: small-caps;
-    font-family: var(--font-medieval), Helvetica, sans-serif;
     
     margin: 0px;
 
@@ -342,6 +342,10 @@ aside.right-panel > section#resizer > button:hover {
     box-shadow: 0px 0px 25px var(--border-color-default);
 }
 
+/*
+ * Good looking effects.
+ */
+
 .banner {
     background: repeating-linear-gradient(20deg, #202020 40px, var(--bg-color-header) 90px);
 }
@@ -349,6 +353,10 @@ aside.right-panel > section#resizer > button:hover {
 .banner-inverted {
     background: repeating-linear-gradient(-20deg, #202020 40px, var(--bg-color-header) 90px);
 }
+
+/*
+ * Form related.
+ */
 
 form textarea, form input, form select {
     color: var(--txt-default-white);
@@ -388,6 +396,15 @@ form > input#submit:hover, button#logout:hover, .switch-buttons-list button:hove
     box-shadow: 0px 0px 30px var(--border-color-default-red);
 }
 
+/*
+ * Products related.
+ */
+
+.product-list {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
 .switch-buttons-list {
     display: grid;
     width: 70%;
@@ -419,6 +436,10 @@ form > input#submit:hover, button#logout:hover, .switch-buttons-list button:hove
     margin-bottom: 0px;
 }
 
+/*
+ * Table for the index.html.
+ */
+
 table {
     width: 100%;
 
@@ -441,6 +462,10 @@ th, td {
     box-shadow: 0px 0px 50px var(--border-color-default);
 }
 
+/*
+ * General about page used in: products, about us and profile.
+ */
+
 .about {
     padding: 4%;
     margin: 0px auto 20px;
@@ -459,7 +484,7 @@ th, td {
 }
 
 .about > section {
-    flex: 1;
+    flex: 1; /* So it occupies the remaining space. */
     padding: 4%;
 }
 
@@ -467,20 +492,19 @@ th, td {
     text-align: center;
 }
 
+.common-theme > article, .common-theme > section, .common-theme-single {
+    background-color: var(--bg-color-single-content);
+    border: 1px solid var(--border-color-default);
+}
+
+/* 
+ * Utils.
+ */
+
 .zero-padding {
     padding: 0;
 }
 
 .align-left {
     text-align: left;
-}
-
-.common-theme > article, .common-theme > section, .common-theme-single {
-    background-color: var(--bg-color-single-content);
-    border: 1px solid var(--border-color-default);
-}
-
-.product-list {
-    margin-bottom: 0px;
-    padding: 0px;
 }
