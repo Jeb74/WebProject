@@ -406,10 +406,11 @@ form > input#submit:hover, button#logout:hover, .switch-buttons-list button:hove
 }
 
 .switch-buttons-list {
-    display: grid;
     width: 70%;
-    margin: 0px auto 20px;
+    
     padding: 0px;
+    margin: 0px auto 20px;
+    display: grid;
 }
 
 .switch-buttons-list .switch-buttons {

@@ -222,6 +222,8 @@ class StringValidator
     
         displayMessage(this.errorLabel, outcome, !success)
         displayCharsLeft(this.wordCountLabel, curr_len, this.max_len)
+
+        return outcome
     }
 
     debug()
