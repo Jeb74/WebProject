@@ -1,0 +1,12 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<footer>
+    <ul>
+        <li>Antonio Masala</li>
+        <li>Marco La Civita</li>
+        <li>Computer Science Society</li>
+        <li>
+            <a href="mailto:contact@sorridi.xyz">contact@sorridi.xyz</a>
+        </li>
+    </ul>
+</footer>

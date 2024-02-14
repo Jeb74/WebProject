@@ -1,0 +1,515 @@
+html {
+    /* bg = background */
+    --bg-color-header: #1A1A1A;
+    --bg-color-body: #2A2A2A;
+    --bg-color-navbar: black;
+    --bg-color-footer: #262626;
+    --bg-color-default-content: #2A2A2A;
+    --bg-color-single-content: #1c1c1c;
+    --bg-color-hr: #D2D6D6;
+    --bg-color-resizer: rgb(100, 100, 100);
+
+    /* txt = text */
+    --txt-title: rgb(124, 30, 30);
+    --txt-default-white: #D2D6D6;
+    --txt-default-black: #1A1A1A;
+    --txt-link: rgba(255, 100, 10, 0.7);
+    --txt-link-hover: rgb(250, 150, 0);
+    --txt-border-color-footer: #dc3545;
+
+    --border-color-default: rgb(100, 100, 100);
+    --border-color-default-red: rgb(124, 30, 30);
+    
+    --font-medieval: "Black Castle MF";
+    --font-grotesk: "SpaceGrotesk-Regular";
+}
+
+/* Really nice font for the header title but gives warnings and errors that I cannot find a solution to. :( */
+@font-face {
+    font-family: 'Black Castle MF';
+    font-weight: 600;
+    font-display: auto;
+    src: url('../assets/fonts/BlackCastleMF.ttf');
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-Regular';
+    font-weight: 400;
+    font-display: auto;
+    src: url('../assets/fonts/SpaceGrotesk-Regular.ttf');
+}
+
+/* 
+ * Structure of page.
+ */
+
+.col-0 { width: 4.165%; }
+.col-1 { width: 8.33%; }
+.col-2 { width: 16.66%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33%; }
+.col-5 { width: 41.66%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.33%; }
+.col-8 { width: 66.66%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.33%; }
+.col-11 { width: 91.66%; }
+.col-12 { width: 100%; }
+
+/* For mobile phones: */
+@media only screen and (max-width: 768px) {
+    [class*="col-"] {
+        float: none;
+        width: 100%;
+        padding: 15px;
+    }
+
+    nav > ul {
+        display: block; /* Make the nav-bar stay on top of the page. */
+    }
+
+    .content > article, .content > section {
+        padding: 3% 6%;
+    }
+
+    .about {
+        display: initial; /* Avoid empty ruleset. */
+    }
+
+    header {
+        text-align: center;
+    }
+
+    header > img {
+        margin-bottom: 10px;
+    }
+
+    .about {
+        display: block;
+    }
+}
+
+.about li:last-child {
+    margin-bottom: 0px;
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+    [class *="col-"] {
+        float: left;
+    }
+
+    nav {
+        position: sticky; /* Make the nav-bar stick to the top even when scrolling. */
+        top: 0px;
+    }
+
+    nav > ul {
+        display: flex; /* Make the elements stand orizontally one next to the other. */
+    }
+
+    .content > article, .content > section {
+        padding: 1% 3%;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+    }
+    
+    header > img {
+        margin-right: 30px;
+    }
+
+    .about {
+        width: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/*
+ * General
+ */
+
+header, body, footer {
+    font-family: var(--font-grotesk), Helvetica, sans-serif;
+}
+ 
+* {
+    box-sizing: border-box; /* Let's make dealing with the sizes of elements easier. */
+}
+
+header *, footer *, nav * {
+    user-select: none; /* Remove the ability to select in these instances. */
+}
+
+a {
+    color: var(--txt-link);
+}
+
+a:hover {
+    color: var(--txt-link-hover);
+}
+
+/*
+ * Core elements (header, body, footer) 
+ */
+
+header {
+    background-color: var(--bg-color-header);
+
+    padding: 15px;
+}
+
+header > img {
+    width: 100px;
+    height: 100px;
+    
+    border: 4px solid black;
+    border-radius: 50%;
+}
+
+header > h1 {
+    font-size: xxx-large;
+    font-variant: small-caps;
+    
+    margin: 0px;
+
+    color: var(--txt-title);
+}
+
+body {
+    background: var(--bg-color-body);
+    margin: 0;
+    display: inline-block;
+}
+
+footer {
+    font-size: large;
+
+    color: var(--txt-default-white);
+    background-color: var(--bg-color-single-content);
+
+    text-align: center;
+
+    padding: 15px 0px;
+    border-top: 3px solid var(--txt-title);
+}
+
+footer > ul {
+    padding: 0;
+}
+
+footer > ul > li {
+    margin: 0px 15px;
+    padding: 10px;
+    border: 2px dashed var(--border-color-default-red);
+    
+    display: inline-block;
+}
+
+footer > ul > li > a {
+    color: var(--txt-border-color-footer);
+    text-decoration: none;
+}
+
+/* Let's avoid items stacking directly on top of each other. */
+@media only screen and (max-width: 912px) /* magic number of pixels found using browser console. */
+{
+    footer > ul > li {
+        margin: 15px;
+    }
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*
+ * Navigation Bar
+ */
+
+nav > ul {
+    margin: 0;
+    padding: 0;
+    
+    list-style: none;
+}
+
+nav > ul > li {
+    text-align: center;
+    width: 100%; /* Make the elements of the nav use all the available space. */
+}
+
+nav > ul > li > a {
+    font-size: large;
+    background-color: var(--bg-color-navbar);
+    text-decoration: none;
+    height: 100%;
+    padding: 18px;
+    display: block; /* Extend the nav element's boxes. */
+}
+
+nav > ul > li > a#current-page {
+    font-weight: bold;
+    background-color: var(--bg-color-default-content);
+}
+
+/*
+ * Actual content.
+ */
+
+main, aside {
+    padding: 20px;
+}
+
+.common-text {
+    font-style: normal;
+    font-size: medium;
+
+    color: var(--txt-default-white);
+}
+
+.content {
+    transition: 0.3s;
+}
+
+.content h2::after {
+    background-color: var(--border-color-default);
+    
+    height: 1px;
+
+    margin: 10px 0px;
+    
+    display: block;
+    content: "";
+}
+
+.content > article, .content > section {
+    margin-bottom: 20px;
+}
+
+.content > article:last-child, .content > section:last-child {
+    margin-bottom: 0px;
+}
+
+.content > img {
+    width: 100%;
+}
+
+/*
+ * Letter-resizer & Sponsors column.
+ */
+
+aside.right-panel > section {
+    margin-bottom: 20px;
+    padding: 6% 4%;
+
+    text-align: center;
+}
+
+aside.right-panel > section > img {
+    max-width: 45%;
+    max-height: 45%;
+
+    border-radius: 25%;
+}
+
+aside.right-panel > section > h2 {
+    margin-top: 0px;
+}
+
+aside.right-panel > section#resizer > button {
+    font-size: xx-large;
+
+    color: var(--txt-default-white);
+    background-color: var(--bg-color-default-content);
+    
+    width: 80px;
+    height: 80px;
+    
+    border: 5px solid var(--border-color-default);
+    border-radius: 50%;
+}
+
+aside.right-panel > section#resizer > button:hover {
+    background-color: var(--bg-color-resizer);
+    box-shadow: 0px 0px 25px var(--border-color-default);
+}
+
+/*
+ * Good looking effects.
+ */
+
+.banner {
+    background: repeating-linear-gradient(20deg, #202020 40px, var(--bg-color-header) 90px);
+}
+
+.banner-inverted {
+    background: repeating-linear-gradient(-20deg, #202020 40px, var(--bg-color-header) 90px);
+}
+
+/*
+ * Form related.
+ */
+
+form textarea, form input, form select {
+    color: var(--txt-default-white);
+    background-color: var(--bg-color-body);
+    
+    width: 100%;
+    
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--border-color-default);
+    
+    display: block;
+}
+
+form textarea {
+    max-height: 200px;
+    min-height: 100px;
+}
+
+form > input#submit, button#logout, .switch-buttons-list button {
+    color: var(--txt-default-white);
+    background-color: var(--border-color-default-red);
+
+    font-size: x-large;
+    font-weight: bold;
+
+    min-width: 50%;
+    max-width: 50%;
+    height: 70px;
+
+    margin: 40px auto 20px;
+    border: 1px solid var(--border-color-default);
+}
+
+form > input#submit:hover, button#logout:hover, .switch-buttons-list button:hover {
+    box-shadow: 0px 0px 30px var(--border-color-default-red);
+}
+
+/*
+ * Products related.
+ */
+
+.product-list {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.switch-buttons-list {
+    width: 70%;
+    
+    padding: 0px;
+    margin: 0px auto 20px;
+    display: grid;
+}
+
+.switch-buttons-list .switch-buttons {
+    text-align: center;
+    display: flex;
+}
+
+.switch-buttons-list button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.switch-buttons-list button#switch-left {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.switch-buttons-list button#switch-right {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.switch-buttons-list > section {
+    margin-bottom: 0px;
+}
+
+/*
+ * Table for the index.html.
+ */
+
+table {
+    width: 100%;
+
+    margin-bottom: 1em; /* So it will be equal to the margin on a regular html paragraph */
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--bg-color-body);
+}
+
+th, td {
+    text-align: left;
+
+    padding: 1%;
+    border: 1px solid var(--border-color-default);
+}
+
+.smoke-border {
+    box-shadow: 0px 0px 50px var(--border-color-default);
+}
+
+/*
+ * General about page used in: products, about us and profile.
+ */
+
+.about {
+    padding: 4%;
+    margin: 0px auto 20px;
+}
+
+.about img {
+    max-height: 180px;
+    max-width: 180px;
+
+    border: 2px solid var(--border-color-default);
+    border-radius: 50%;
+}
+
+.about > .about-image {
+    padding: 4%;
+}
+
+.about > section {
+    flex: 1; /* So it occupies the remaining space. */
+    padding: 4%;
+}
+
+.about {
+    text-align: center;
+}
+
+.common-theme > article, .common-theme > section, .common-theme-single {
+    background-color: var(--bg-color-single-content);
+    border: 1px solid var(--border-color-default);
+}
+
+/* 
+ * Utils.
+ */
+
+.zero-padding {
+    padding: 0;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}

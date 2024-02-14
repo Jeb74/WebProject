@@ -1,0 +1,6 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<header>
+    <img class="smoke-border" alt="Albion Black Market Logo" src="./assets/skull-bottle.png">
+    <h1>Albion Black Market</h1>
+</header>

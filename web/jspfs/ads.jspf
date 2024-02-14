@@ -1,0 +1,43 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<aside class="col-3 right-panel common-text common-theme">
+    <section class="banner-inverted" id="resizer">
+        <h2>CHANGE TEXT ZOOM LEVEL</h2>
+        <button type="button" class="small">A-</button>
+        <button type="button" class="medium">A</button>
+        <button type="button" class="large">A+</button>
+    </section>
+    <section class="banner">
+        <h2>🌊 SPONSOR 🌊</h2>
+        <img src="./assets/kokosmilch.png" alt="Kokosmilch">
+        <p> With simple and healthy ingredients, Kokosmilch is the best drink to have in this hot summer! </p>
+        <p>
+            <b>
+                <a href="https://www.kaufland.de/product/386975157/?search_value=kokosmilch">TRY KOKOSMILCH NOW!</a>
+            </b>
+        </p>
+    </section>
+    <section class="banner-inverted">
+        <h2>🐘 MAMMYS 🐘</h2>
+        <img src="./assets/mammouth-calf.gif" alt="Mammouth Calf trading">
+        <p> Looking for a Mammouth Calf at an affordable price? </p>
+        <p> Check out the <a href="./products____DISCARDED.html">Products</a> section! </p>
+    </section>
+    <section class="banner">
+        <h2>⚔️ WEAPONS 🗡️</h2>
+        <img src="./assets/weapons.gif" alt="Weapons trading">
+        <p> Tired of not finding you favourite weapons at the standard market? </p>
+        <p> We refill our stocks of weapons daily! </p>
+    </section>
+    <section class="banner-inverted">
+        <h2>🌟 CHARITY 🌟</h2>
+        <img src="./assets/fakturka-donate.png" alt="Donate to fakturka">
+        <p> Fakturka (known as Matvey) is a boy from Russia 🇷🇺 who likes <strong>alot</strong> playing Albion Online, unfortunately, he has a <b>potato PC</b> and he cannot win in the <i>Corrupted Dungeons</i> as he should. </p>
+        <p> But <b>YOU</b> can make a <b>difference</b>, <b>YOU</b> can donate to Fakturka to fund his new PC. </p>
+        <p>
+            <b>
+                <a href="http://www.donationalerts.ru/r/fakturka">CONTRIBUTE NOW!</a>
+            </b>
+        </p>
+    </section>
+</aside>

@@ -1,0 +1,15 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<head>
+    <title>Albion - Black Market: Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Antonio Masala & Marco La Civita">
+    <meta name="description" content="Albion Online unofficial marketplace for selling and buying ingame content.">
+    <meta name="keywords" content="ALBION, ALBION ONLINE, BLACK MARKET, MARKET, TRADING">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link href="./css/style.css" rel="stylesheet" media="screen">
+    <link href="./assets/skull-bottle.png" rel="icon">
+    <script type="text/javascript" src="./scripts/jquery.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
+</head>
