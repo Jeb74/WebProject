@@ -31,6 +31,7 @@ import javax.servlet.http.Part;
  * @author fpw
  */
 @WebServlet(name = "Register", urlPatterns = {"/register"})
+@MultipartConfig
 public class RegisterServlet extends HttpServlet implements Verifications {
 
     /**
@@ -42,7 +43,6 @@ public class RegisterServlet extends HttpServlet implements Verifications {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @MultipartConfig
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -98,8 +98,8 @@ public class RegisterServlet extends HttpServlet implements Verifications {
 
     private String handleImage(HttpServletRequest request) throws IOException, ServletException {
         Part part = request.getPart("photo");
-        String path = GlobalPaths.getDefaultPhotoPath();
-        if (part != null) {
+        String path = null;
+        try {
             InputStream inputFile = part.getInputStream();
             String file_name = part.getSubmittedFileName();
             int indx = file_name.lastIndexOf(".");
@@ -107,6 +107,9 @@ public class RegisterServlet extends HttpServlet implements Verifications {
             path = GlobalPaths.getPhotoPath() + new_name;
             File img = new File(path);
             Files.copy(inputFile, img.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        }
+        catch(Exception e) {
+            path = GlobalPaths.getDefaultPhotoPath();
         }
         return path;
     }
